@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+    <title>Home</title>
+    <style>
+      .container {
+        display: flex;
+        gap: 25px;
+      }
+      .card {
+        background: transparent;
+        color: black;
+        border: 2px solid gray;
+      }
+      .btn {
+        background-color: maroon;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include("./partials/nav") %>
+    <div class="container mt-5">
+      <% blogs.forEach(blog=>{ %>
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title"><%=blog.title%></h5>
+          <p class="card-desc"><%=blog.desc%></p>
+          <a href="/blog/<%=blog._id%>" class="btn">Read More</a>
+        </div>
+      </div>
+      <%})%>
+    </div>
+    <%- include('./partials/footer.ejs') %> <%- include('./partials/script.ejs')
+    %>
+  </body>
+</html>

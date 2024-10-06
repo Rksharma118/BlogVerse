@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+    <title>Add Blog</title>
+    <style>
+      body {
+        background-color: #e9eef5;
+      }
+
+      #title,
+      #desc,
+      #body {
+        background-color: white;
+        color: black;
+      }
+
+      .form-label {
+        color: black;
+        font-size: larger;
+      }
+      .btn {
+        background-color: maroon;
+        color: white;
+      }
+    </style>
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+  </head>
+  <body>
+    <%- include("./partials/nav") %>
+    <div class="container mt-3">
+      <form action="/blog" method="post">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input
+            name="title"
+            type="text"
+            class="form-control"
+            id="title"
+            aria-describedby="title"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="desc" class="form-label">Description</label>
+          <input
+            name="desc"
+            type="text"
+            class="form-control"
+            id="desc"
+            aria-describedby="desc"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="body" class="form-label">Body</label>
+          <textarea
+            name="body"
+            type="text"
+            class="form-control"
+            id="body"
+            aria-describedby="desc"
+          ></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="author" class="form-label">Author</label>
+          <input
+            name="author"
+            type="text"
+            class="form-control"
+            id="author"
+            aria-describedby="author"
+          />
+        </div>
+        <div class="mb-3">
+          <input class="btn" type="submit" value="Submit" />
+        </div>
+      </form>
+    </div>
+
+    <%- include('./partials/script.ejs') %>
+    <script>
+      // Initialize CKEditor for the body textarea
+      CKEDITOR.replace("body");
+    </script>
+  </body>
+</html>
